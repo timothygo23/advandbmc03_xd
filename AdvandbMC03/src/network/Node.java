@@ -51,14 +51,14 @@ public class Node {
 	         case BOTH_NODE_NUMBER:
 	        	 
 	        	try {
-	        		this.mainConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allregions", connectionProps);
+	        		this.mainConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi_all_regions", connectionProps);
 	        	} catch (SQLException e) {
 	        		// TODO Auto-generated catch block
 	        		e.printStackTrace();
 	        	}
 	        	    
 	        	try {
-	        		this.replicaConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/asia_africa", connectionProps);
+	        		this.replicaConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi_asia_africa", connectionProps);
 	        	} catch (SQLException e) {
 	        		// TODO Auto-generated catch block
 	        		e.printStackTrace();
@@ -68,14 +68,14 @@ public class Node {
 	         case EUROPE_AMERICA_NODE_NUMBER:
 	        	 
 	        	try {
-	        		this.mainConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/europe_america", connectionProps);
+	        		this.mainConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi_europe_and_america", connectionProps);
 	     		} catch (SQLException e) {
 	     			// TODO Auto-generated catch block
 	     			e.printStackTrace();
 	     		}
 	     	    
 	     	    try {
-	     	    	this.replicaConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allregions", connectionProps);
+	     	    	this.replicaConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi_all_regions", connectionProps);
 	     		} catch (SQLException e) {
 	     			// TODO Auto-generated catch block
 	     			e.printStackTrace();
@@ -85,14 +85,14 @@ public class Node {
 	         case ASIA_AFRICA_NODE_NUMBER:
 	        	 
 	        	try {
-	        		this.mainConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/asia_africa", connectionProps);
+	        		this.mainConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi_asia_africa", connectionProps);
 	      		} catch (SQLException e) {
 	      			// TODO Auto-generated catch block
 	      			e.printStackTrace();
 	      		}
 	      	    
 	      	    try {
-	      	    	this.replicaConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/europe_america", connectionProps);
+	      	    	this.replicaConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi_europe_and_america", connectionProps);
 	      		} catch (SQLException e) {
 	      			// TODO Auto-generated catch block
 	      			e.printStackTrace();

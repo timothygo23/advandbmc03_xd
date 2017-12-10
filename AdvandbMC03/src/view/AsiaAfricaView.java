@@ -7,7 +7,7 @@ public class AsiaAfricaView extends NodeView{
 	private final String mainRepo = "ASIA AND AFRICA";
 	private final String replicaRepo = "EUROPE AND AMERICA";
 	
-	//private Node node = new Node(Node.ASIA_AFRICA_NODE_NUMBER);
+	private Node node = new Node(Node.ASIA_AFRICA_NODE_NUMBER);
 
 	public AsiaAfricaView(MainController mc) {
 		super(mc);

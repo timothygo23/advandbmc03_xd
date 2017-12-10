@@ -7,7 +7,7 @@ public class EuropeAmericaView extends NodeView{
 	private final String mainRepo = "EUROPE AND AMERICA";
 	private final String replicaRepo = "ALL REGIONS";
 	
-	//private Node node = new Node(Node.EUROPE_AMERICA_NODE_NUMBER);
+	private Node node = new Node(Node.EUROPE_AMERICA_NODE_NUMBER);
 
 	public EuropeAmericaView(MainController mc) {
 		super(mc);

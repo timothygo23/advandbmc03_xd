@@ -7,7 +7,7 @@ public class AllRegionView extends NodeView {
 	private final String mainRepo = "ALL REGIONS";
 	private final String replicaRepo = "ASIA AFRICA";
 	
-	//private Node node = new Node(Node.BOTH_NODE_NUMBER);
+	private Node node = new Node(Node.BOTH_NODE_NUMBER);
 
 	public AllRegionView(MainController mc) {
 		super(mc);
