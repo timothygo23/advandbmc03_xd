@@ -85,12 +85,12 @@ public class MySqlStatement {
 	}
 	
 	public static String globalCase2_Transaction1(){
-		String sql = "";
+		String sql = "UPDATE data_by_year SET Data = 12345 WHERE CountryCode = \"PHL\" AND YearC = \"2012\" AND SeriesCode = \"SL.UEM.TERT.MA.ZS\"";
 		return sql;
 	}
 	
 	public static String globalCase2_Transaction2(){
-		String sql = "";
+		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data)VALUES (\"ZWE\", \"SL.UEM.TERT.FE.ZS\", \"2012\", \"12345\");";
 		return sql;
 	}
 	
