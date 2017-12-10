@@ -57,17 +57,17 @@ public class MySqlStatement {
 		/*
 		 * inserts a data in the year 2001, in thi respective node
 		 */
-		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data)VALUES (\"+countryCode+\", \"SL.UEM.TERT.MA.ZS\", \"2001 [YR2001]\", \"1234\");";
+		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data)VALUES (\""+countryCode+"\", \"SL.UEM.TERT.MA.ZS\", \"2001 [YR2001]\", \"1234\");";
 		return sql;
 	}
 	
 	public static String localCase3_Transaction1(String countryCode){
-		String sql = "UPDATE data_by_year SET Data = Data + 100 WHERE CountryCode = \"+countryCode+\" && YearC = \"2001 [YR2001]\" && SeriesCode = \"SL.UEM.TERT.MA.ZS\";";
+		String sql = "UPDATE data_by_year SET Data = Data + 100 WHERE CountryCode = \""+countryCode+"\" && YearC = \"2001 [YR2001]\" && SeriesCode = \"SL.UEM.TERT.MA.ZS\";";
 		return sql;
 	}
 	
-	public static String locallCase3_Transaction2(String countryCode){
-		String sql = "UPDATE data_by_year SET Data = Data * 2 WHERE CountryCode = \"+countryCode+\" && YearC = \"2001 [YR2001]\" && SeriesCode = \"SL.UEM.TERT.MA.ZS\";";
+	public static String localCase3_Transaction2(String countryCode){
+		String sql = "UPDATE data_by_year SET Data = Data * 2 WHERE CountryCode = \""+countryCode+"\" && YearC = \"2001 [YR2001]\" && SeriesCode = \"SL.UEM.TERT.MA.ZS\";";
 		return sql;
 	}
 	

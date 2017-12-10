@@ -173,6 +173,14 @@ public abstract class NodeView extends BorderPane implements View{
 		
 	}
 	
+	public void changePreviewTextArea(String preview){
+		previewTextArea.setText(preview);
+	}
+	
+	public void appendLogText(String text){
+		logTextArea.setText(logTextArea.getText() + "\n" + text);
+	}
+	
 	protected abstract void setLabels();
 
 }
