@@ -95,7 +95,7 @@ public class MySqlStatement {
 	}
 	
 	public static String globalCase3_Transaction1(){
-		String sql = "";
+		String sql = "DELETE FROM data_by_year WHERE CountryCode = \"SGP\" AND TimeCode = \"2012\" AND SeriesCode = \"SL.UEM.TERT.MA.ZS\"";
 		return sql;
 	}
 	
