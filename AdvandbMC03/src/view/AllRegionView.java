@@ -87,7 +87,9 @@ public class AllRegionView extends NodeView {
 	}
 	
 	public void doFuckingLocalShit(int target, String query){
-		
+		ArrayList<Integer> nodesChecked = new ArrayList<>();
+		ArrayList<String> queries = new 
+		ArrayList<String[]> = 
 	}
 
 	@Override
