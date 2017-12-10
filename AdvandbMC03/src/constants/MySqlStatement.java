@@ -21,4 +21,86 @@ public class MySqlStatement {
 	
 	public static String deleteUnemploymentSGP2012Female = "DELETE FROM data_by_year WHERE CountryCode = \"SGP\" && TimeCode = \"2012\" && SeriesCode = \"SL.UEM.TERT.FE.ZS\"";
 	
+	//local queries
+	public static String localCase1_Transaction1(){
+		/*
+		 * gets the avg unemployment of female in 2004 in this respective node
+		 */
+		String sql = "SELECT AVG(Data)"
+				+ " FROM data_by_year"
+				+ " WHERE YearC = '2004 [YR2004]' and SeriesCode = 'SL.UEM.TERT.FE.ZS';";
+		return sql;
+	}
+	
+	public static String localCase1_Transaction2(){
+		/*
+		 * gets the sum unemployment of female in 2004 in this respective node
+		 */
+		String sql = "SELECT SUM(Data)"
+				+ " FROM data_by_year"
+				+ " WHERE YearC = '2004 [YR2004]' and SeriesCode = 'SL.UEM.TERT.FE.ZS';";
+		return sql;
+	}
+	
+	public static String localCase2_Transaction1(){
+		/*
+		 * gets the count of country that has data in the year 2001 in this respective node
+		 */
+		String sql = "SELECT count(CountryCode)"
+				+ " FROM data_by_year"
+				+ " WHERE YearC = '2001 [YR2001]'"
+				+ " GROUP BY SeriesCode = 'SL.UEM.TERT.MA.ZS';";
+		return sql;
+	}
+	
+	public static String localCase2_Transaction2(String countryCode){
+		/*
+		 * inserts a data in the year 2001, in thi respective node
+		 */
+		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data)VALUES (\"+countryCode+\", \"SL.UEM.TERT.MA.ZS\", \"2001 [YR2001]\", \"1234\");";
+		return sql;
+	}
+	
+	public static String localCase3_Transaction1(String countryCode){
+		String sql = "UPDATE data_by_year SET Data = Data + 100 WHERE CountryCode = \"+countryCode+\" && YearC = \"2001 [YR2001]\" && SeriesCode = \"SL.UEM.TERT.MA.ZS\";";
+		return sql;
+	}
+	
+	public static String locallCase3_Transaction2(String countryCode){
+		String sql = "UPDATE data_by_year SET Data = Data * 2 WHERE CountryCode = \"+countryCode+\" && YearC = \"2001 [YR2001]\" && SeriesCode = \"SL.UEM.TERT.MA.ZS\";";
+		return sql;
+	}
+	
+	//global queries
+	public static String globalCase1_Transaction1(){
+		String sql = "";
+		return sql;
+	}
+	
+	public static String globalCase1_Transaction2(){
+		String sql = "";
+		return sql;
+	}
+	
+	public static String globalCase2_Transaction1(){
+		String sql = "";
+		return sql;
+	}
+	
+	public static String globalCase2_Transaction2(){
+		String sql = "";
+		return sql;
+	}
+	
+	public static String globalCase3_Transaction1(){
+		String sql = "";
+		return sql;
+	}
+	
+	public static String globalCase3_Transaction2(){
+		String sql = "";
+		return sql;
+	}
+	
+	
 }
