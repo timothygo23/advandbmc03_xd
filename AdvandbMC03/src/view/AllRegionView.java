@@ -24,9 +24,13 @@ public class AllRegionView extends NodeView {
 	private final String replicaRepo = "ASIA AFRICA";
 	
 	private Node node = new Node(Node.BOTH_NODE_NUMBER);
+	private ArrayList<TableColumn> col;
+	private ObservableList<String> row;
 
 	public AllRegionView(MainController mc) {
 		super(mc);
+		col = new ArrayList<TableColumn>();
+		data = FXCollections.observableArrayList();
 		initHandler();
 		setLabels();
 	}
@@ -88,8 +92,46 @@ public class AllRegionView extends NodeView {
 	
 	public void doFuckingLocalShit(int target, String query){
 		ArrayList<Integer> nodesChecked = new ArrayList<>();
-		ArrayList<String> queries = new 
-		ArrayList<String[]> = 
+		ArrayList<String> queries = new ArrayList<String>();
+		nodesChecked.add(target);
+		queries.add(query);
+		ArrayList<String[]> result = node.retrieveData(nodesChecked, queries);
+		
+		if (!resultsTable.getTable().getColumns ().isEmpty ()){
+			for(int i = 0; i < col.size(); i++){
+				resultsTable.getTable().getColumns ().removeAll (col.get(i));
+			}
+			col.clear();
+		}
+			
+		
+		if (!resultsTable.getTable().getItems ().isEmpty ()){
+			resultsTable.getTable().getItems ().removeAll (row);
+			data.clear();
+		}
+		
+			addColumn("CountryCode", 0);
+			addColumn("SeriesCode", 1);
+			addColumn("YearC", 2);
+			addColumn("Data", 3);
+			
+			for(int i = 0; i < result.size(); i++) {
+				row = FXCollections.observableArrayList(result.get(i));
+				data.add(row);
+			}
+			resultsTable.getTable().setItems (data);
+	}
+	
+	public void addColumn(String column, int index) {
+		TableColumn c = new TableColumn (column);
+		c.setCellValueFactory (new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>> () {
+			public ObservableValue<String> call (CellDataFeatures<ObservableList, String> param) {
+					return new SimpleStringProperty (param.getValue ().get (index).toString ());
+			}
+		});
+		
+		col.add(c);
+		resultsTable.getTable().getColumns ().addAll (c);
 	}
 
 	@Override
