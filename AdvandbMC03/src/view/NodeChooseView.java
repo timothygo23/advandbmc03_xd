@@ -15,9 +15,6 @@ import javafx.scene.layout.VBox;
 public class NodeChooseView extends BorderPane implements View{
 	private MainController mc;
 	
-	private VBox topVBox;
-		private Label siteLabel;
-	
 	private VBox centerVBox;
 		private Button allRegion;
 		private Button europeAmerica;
@@ -34,7 +31,6 @@ public class NodeChooseView extends BorderPane implements View{
 		init();
 		initHandler();
 		setCenter (centerVBox);
-		setTop(topVBox);
 	}
 	
 	public void init(){
@@ -45,23 +41,16 @@ public class NodeChooseView extends BorderPane implements View{
 		centerVBox.setAlignment (Pos.CENTER);
 		
 		allRegion = new Button("ALL REGION NODE");
-		allRegion.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		allRegion.getStyleClass().add("Button");
 		
 		europeAmerica = new Button("EUROPE AND AMERICA");
-		europeAmerica.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		europeAmerica.getStyleClass().add("Button");
 		
 		asiaAfrica = new Button("ASIA AND AFRICA");
-		asiaAfrica.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		asiaAfrica.getStyleClass().add("Button");
 		
 		centerVBox.getChildren (). addAll(allRegion, europeAmerica, asiaAfrica);
-		
-		//top box
-		topVBox = new VBox();
-		topVBox.setId("topVBox");
-		topVBox.setAlignment(Pos.CENTER);
-		
-		siteLabel = new Label("SITE 1");
-		topVBox.getChildren().addAll(siteLabel);
+
 	}
 	
 	public void initHandler(){

@@ -11,7 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-public class NodeView extends BorderPane implements View{
+public abstract class NodeView extends BorderPane implements View{
+	
+	protected final String LOCAL = "Local";
+	protected final String GLOBAL = "Global";
 
 	protected MainController mc;
 	
@@ -46,7 +49,6 @@ public class NodeView extends BorderPane implements View{
 		this.mc = mc;
 		
 		initPane ();
-		initHandlers ();
 	}
 	
 	private void initPane() {
@@ -147,12 +149,6 @@ public class NodeView extends BorderPane implements View{
 	}
 
 	private void initRight() {
-		/*
-		 * protected VBox rightVBox;
-		protected Label logLabel;
-		protected TextArea logTextArea;
-		protected Button clearLogButton;
-		 */
 		rightVBox = new VBox (10);
 		rightVBox.setId("RightVBox");
 		rightVBox.setAlignment(Pos.CENTER);
@@ -170,29 +166,13 @@ public class NodeView extends BorderPane implements View{
 		
 		VBox.setVgrow(rightVBox, Priority.ALWAYS);
 	}
-
-	private void initHandlers() {
-		mainButton.setOnAction(e -> {
-			
-		});
-		
-		replicaButton.setOnAction(e -> {
-			
-		});
-		
-		simulateButton.setOnAction(e -> {
-			
-		});
-		
-		clearLogButton.setOnAction(e -> {
-			
-		});
-	}
-
+	
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	protected abstract void setLabels();
 
 }

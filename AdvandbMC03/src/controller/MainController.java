@@ -1,7 +1,10 @@
 package controller;
 
 import javafx.stage.Stage;
+import view.AllRegionView;
+import view.AsiaAfricaView;
 import view.ConcreteView;
+import view.EuropeAmericaView;
 import view.NodeChooseView;
 import view.NodeView;
 
@@ -28,18 +31,20 @@ public class MainController extends Controller{
 	protected void changeView() {
 		switch (currentView) {
 			case NODES_VIEW:
-				NodeView ncv = new NodeView(this);
-				//NodeChooseView ncv = new NodeChooseView(this);
+				NodeChooseView ncv = new NodeChooseView(this);
 				scene.setRoot(ncv);
 				break;
 			case ALL_REGION_VIEW:
-				//scene.setRoot (value);
+				AllRegionView arv = new AllRegionView(this);
+				scene.setRoot(arv);
 				break;
 			case EUROPE_AMERICA_VIEW:
-				//scene.setRoot(value);
+				EuropeAmericaView eav = new EuropeAmericaView(this);
+				scene.setRoot(eav);
 				break;
 			case ASIA_AFRICA_VIEW:
-				//scene.setRoot(value);
+				AsiaAfricaView aav = new AsiaAfricaView(this);
+				scene.setRoot(aav);
 				break;
 		}
 		
