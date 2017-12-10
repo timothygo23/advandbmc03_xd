@@ -21,7 +21,6 @@ public class AllRegionView extends NodeView {
 				MySqlStatement.localCase1_Transaction1() + 
 				"\nTransaction 2: \n" +
 				MySqlStatement.localCase1_Transaction2());
-		
 		statementComboBox.setOnAction(e -> {
 			if(concurrencyTypeComboBox.getSelectionModel().getSelectedItem().equals(LOCAL)){
 				//local queries

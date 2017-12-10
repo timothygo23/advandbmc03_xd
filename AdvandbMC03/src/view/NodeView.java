@@ -169,7 +169,6 @@ public abstract class NodeView extends BorderPane implements View{
 	
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
 	}
 	

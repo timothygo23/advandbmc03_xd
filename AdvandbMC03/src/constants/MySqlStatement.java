@@ -3,6 +3,8 @@ package constants;
 public class MySqlStatement {
 	private static final String country_region = "country_region";
 	
+	public static String getAll = "SELECT * FROM data_by_year";
+	
 	public static String getRegionOfCountryCode = "SELECT * FROM " + country_region + " WHERE countrycode = '";
 	
 	public static String getUnemploymentFrequencyMale = "SELECT C.CountryCode, C.CountryName, CI.Income, SUM(DY.Data) FROM country C, country_income CI, data_by_year DY WHERE C.CountryCode = CI.CountryCode && C.CountryCode = DY.CountryCode && DY.SeriesCode = \"SL.UEM.TERT.MA.ZS\" GROUP BY DY.CountryCode";
