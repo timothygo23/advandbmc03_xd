@@ -1,1 +1,3 @@
-**TRANSACTIONS OF NODE 1**
+**TRANSACTIONS OF NODE 2**
+<T1 SELECT AVG(Data) FROM data_by_year WHERE YearC = '2004 [YR2004]' and SeriesCode = 'SL.UEM.TERT.FE.ZS';>
+<T1 SELECT AVG(Data) FROM data_by_year WHERE YearC = '2004 [YR2004]' and SeriesCode = 'SL.UEM.TERT.FE.ZS';>
