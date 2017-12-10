@@ -18,19 +18,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
 import network.Node;
+import util.Transaction;
 
 public class AllRegionView extends NodeView {
 	private final String mainRepo = "ALL REGIONS";
 	private final String replicaRepo = "ASIA AFRICA";
 	
 	private Node node = new Node(Node.BOTH_NODE_NUMBER);
-	private ArrayList<TableColumn> col;
-	private ObservableList<String> row;
 
 	public AllRegionView(MainController mc) {
 		super(mc);
-		col = new ArrayList<TableColumn>();
-		data = FXCollections.observableArrayList();
 		initHandler();
 		setLabels();
 	}
@@ -82,11 +79,35 @@ public class AllRegionView extends NodeView {
 		});
 		
 		simulateButton.setOnAction(e -> {
-			
+			if(concurrencyTypeComboBox.getSelectionModel().getSelectedItem().equals(LOCAL)){
+				//local queries
+				switch(statementComboBox.getSelectionModel().getSelectedIndex()){
+				case 0:	Transaction transaction = new Transaction(this, node, node.BOTH_NODE_NUMBER, MySqlStatement.localCase1_Transaction1(), MySqlStatement.localCase1_Transaction2());
+						transaction.start();
+					break;
+				case 1: Transaction transaction1 = new Transaction(this, node, node.BOTH_NODE_NUMBER, MySqlStatement.localCase2_Transaction1(), MySqlStatement.localCase2_Transaction2("AFG"));
+						transaction1.start();
+					break;
+				case 2: Transaction transaction2 = new Transaction(this, node, node.BOTH_NODE_NUMBER, MySqlStatement.localCase3_Transaction1("PHL"), MySqlStatement.localCase3_Transaction2("PHL"));
+						transaction2.start();
+					break;
+				}
+			}else{
+				//global queries
+				switch(statementComboBox.getSelectionModel().getSelectedIndex()){
+					case 0:	System.out.println("1");
+						break;
+					case 1: System.out.println("2");
+						break;
+					case 2: System.out.println("3");
+						break;
+				}
+			}
+	
 		});
 		
 		clearLogButton.setOnAction(e -> {
-			
+			logTextArea.setText("");
 		});
 	}
 	
@@ -138,30 +159,6 @@ public class AllRegionView extends NodeView {
 	protected void setLabels() {
 		nodeLabel.setText("Node: " + mainRepo);
 		replicaLabel.setText("Replica: " + replicaRepo);
-	}
-	
-	public boolean existsInTable(JTable table, Object[] entry) {
-	    // Get row and column count
-	    int rowCount = table.getRowCount();
-	    int colCount = table.getColumnCount();
-
-	    // Get Current Table Entry
-	    String curEntry = "";
-	    for (Object o : entry) {
-	        String e = o.toString();
-	        curEntry = curEntry + " " + e;
-	    }
-
-	    // Check against all entries
-	    for (int i = 0; i < rowCount; i++) {
-	        String rowEntry = "";
-	        for (int j = 0; j < colCount; j++)
-	            rowEntry = rowEntry + " " + table.getValueAt(i, j).toString();
-	        if (rowEntry.equalsIgnoreCase(curEntry)) {
-	            return true;
-	        }
-	    }
-	    return false;
 	}
 
 }

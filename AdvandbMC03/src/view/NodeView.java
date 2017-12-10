@@ -3,6 +3,7 @@ package view;
 import java.util.ArrayList;
 
 import controller.MainController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -56,7 +57,8 @@ public abstract class NodeView extends BorderPane implements View{
 	public NodeView (MainController mc) {
 		super ();
 		this.mc = mc;
-		
+		col = new ArrayList<TableColumn>();
+		data = FXCollections.observableArrayList();
 		initPane ();
 	}
 	
