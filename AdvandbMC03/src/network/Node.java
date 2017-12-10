@@ -146,7 +146,8 @@ public class Node {
 	      
 	   }
 	   
-	   public ArrayList<String[]> retrieveData (ArrayList <Integer> targetNodes, ArrayList <String> queries) {
+	   public ResultSet retrieveData (ArrayList <Integer> targetNodes, ArrayList <String> queries) {
+		   ResultSet rs = null;
 		   ArrayList<String[]> out = new ArrayList<>();
 		   
 		   for (int i = 0; i < targetNodes.size(); i++) {
@@ -154,21 +155,21 @@ public class Node {
 				   PreparedStatement pst;
 					try {
 						pst = mainConn.prepareStatement(queries.get(i));
-						ResultSet rs = pst.executeQuery();
+						rs = pst.executeQuery();
 						ResultSetMetaData metadata = rs.getMetaData();
 						
 						int numberOfColumns = metadata.getColumnCount();
 						
-						while (rs.next()) {
+						/*while (rs.next()) {
 							System.out.println("Result set is not empty");
 							String[] toPlace = new String[numberOfColumns];
 							for(int j = 0; j < numberOfColumns; j++){
 								toPlace[j] = rs.getObject(j+1) + ""; 
 							}
 							out.add(toPlace);
-						}
+						}*/
 						
-						return out;
+						return rs;
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -180,20 +181,17 @@ public class Node {
 				   switch (targetNodes.get(i)) {
 				   
 				   case EUROPE_AMERICA_NODE_NUMBER:
-					   out.addAll(europeAmericaClient.requestData(statement));
-					   break;
+					   return europeAmericaClient.requestData(statement);
 				   case ASIA_AFRICA_NODE_NUMBER:
-					   out.addAll(asiaAfricaClient.requestData(statement));
-					   break;
+					   return asiaAfricaClient.requestData(statement);
 				   case BOTH_NODE_NUMBER:
-					   out.addAll(allClient.requestData(statement));
-					   break;
+					   return allClient.requestData(statement);
 					   
 				   }
 			   }
 		   }
 		   
-		   return out;
+		   return rs;
 		   
 	   }
 

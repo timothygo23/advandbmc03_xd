@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import network.Protocols;
@@ -45,8 +46,8 @@ public class TcpSender {
 
 	   }
 	   
-	   public ArrayList<String[]> requestData(String input) { // strictly for SELECT
-		   ArrayList <String[]> result = null;
+	   public ResultSet requestData(String input) { // strictly for SELECT
+		   ResultSet result = null;
 			try {
 				Socket clientSocket = new Socket(serverAddress, Node.commonPort);
 				DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
@@ -55,7 +56,7 @@ public class TcpSender {
 				
 				ObjectInputStream objectInput = new ObjectInputStream(clientSocket.getInputStream());
 				Object object = objectInput.readObject();
-				result = (ArrayList <String[]>) object;
+				result = (ResultSet) object;
 				
 			} catch (Exception e) {
 				System.out.println("TIMEOUT XDDDD");
@@ -72,7 +73,7 @@ public class TcpSender {
 					
 					ObjectInputStream objectInput = new ObjectInputStream(clientSocket.getInputStream());
 					Object object = objectInput.readObject();
-					result = (ArrayList <String[]>) object;
+					result = (ResultSet) object;
 					
 				} catch (Exception ex) {
 					ex.printStackTrace();

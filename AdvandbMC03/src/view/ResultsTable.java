@@ -46,5 +46,9 @@ public class ResultsTable extends HBox implements View{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public TableView getTable(){
+		return tableView;
+	}
 
 }

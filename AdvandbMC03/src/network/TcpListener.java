@@ -188,7 +188,7 @@ public class TcpListener extends Thread {
 						//DataTransferObject dto = new DataTransferObject(rs);
 						
 						try {
-							objectOutput.writeObject(result);
+							objectOutput.writeObject(rs);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

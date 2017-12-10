@@ -1,10 +1,14 @@
 package view;
 
+import java.util.ArrayList;
+
 import controller.MainController;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -15,6 +19,11 @@ public abstract class NodeView extends BorderPane implements View{
 	
 	protected final String LOCAL = "Local";
 	protected final String GLOBAL = "Global";
+	
+	protected ObservableList<ObservableList> data;
+	
+	protected ArrayList<TableColumn> col;
+	protected ObservableList<String> row;
 
 	protected MainController mc;
 	
