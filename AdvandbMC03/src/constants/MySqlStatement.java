@@ -100,7 +100,7 @@ public class MySqlStatement {
 	}
 	
 	public static String globalCase3_Transaction2(){
-		String sql = "";
+		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data) VALUES (\"ZWE\", \"SL.UEM.TERT.MA.ZS\", \"2012\", \"12345\");";
 		return sql;
 	}
 	
