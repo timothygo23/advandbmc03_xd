@@ -19,7 +19,7 @@ import constants.MySqlStatement;
 public class Node {
 	public static final int commonPort = 3001;
 
-	   public static final String IP_EUROPE_AMERICA = "192.168.0.27"; //tim
+	   public static final String IP_EUROPE_AMERICA = "192.168.0.29"; //tim
 	   public static final String IP_ASIA_AFRICA = "192.168.0.28"; //gab
 	   public static final String IP_BOTH = "192.168.171.2"; //luigi
 
@@ -31,9 +31,9 @@ public class Node {
 
 	   //TcpSender myClient;
 	   
-	   TcpSender allClient = new TcpSender(IP_BOTH, IP_EUROPE_AMERICA);
-	   TcpSender europeAmericaClient = new TcpSender(IP_EUROPE_AMERICA, IP_ASIA_AFRICA);
-	   TcpSender asiaAfricaClient = new TcpSender(IP_ASIA_AFRICA, IP_BOTH);
+	   TcpSender allClient = new TcpSender(IP_BOTH, IP_ASIA_AFRICA);
+	   TcpSender europeAmericaClient = new TcpSender(IP_EUROPE_AMERICA, IP_BOTH);
+	   TcpSender asiaAfricaClient = new TcpSender(IP_ASIA_AFRICA, IP_EUROPE_AMERICA);
 
 	   Connection mainConn; // set auto commit false
 	   Connection replicaConn;
