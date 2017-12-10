@@ -1,12 +1,18 @@
 package main;
 
-import java.net.InetAddress;
-import java.util.Scanner;
+import controller.MainController;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class Driver {
+public class Driver extends Application{
+	
+	@Override
+	public void start(Stage primaryStage) {
+		new MainController (primaryStage);
+	}
 	
 	public static void main(String[] args){
-		
+		launch (args);
 	}
 	
 }
