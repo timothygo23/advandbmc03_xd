@@ -46,8 +46,8 @@ public class TcpSender {
 
 	   }
 	   
-	   public ResultSet requestData(String input) { // strictly for SELECT
-		   ResultSet result = null;
+	   public ArrayList<String[]> requestData(String input) { // strictly for SELECT
+		   	ArrayList<String[]> result =new ArrayList<>();
 			try {
 				Socket clientSocket = new Socket(serverAddress, Node.commonPort);
 				DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
@@ -56,7 +56,7 @@ public class TcpSender {
 				
 				ObjectInputStream objectInput = new ObjectInputStream(clientSocket.getInputStream());
 				Object object = objectInput.readObject();
-				result = (ResultSet) object;
+				result = (ArrayList<String[]>) object;
 				
 			} catch (Exception e) {
 				System.out.println("TIMEOUT XDDDD");
@@ -73,7 +73,7 @@ public class TcpSender {
 					
 					ObjectInputStream objectInput = new ObjectInputStream(clientSocket.getInputStream());
 					Object object = objectInput.readObject();
-					result = (ResultSet) object;
+					result = (ArrayList<String[]>) object;
 					
 				} catch (Exception ex) {
 					ex.printStackTrace();

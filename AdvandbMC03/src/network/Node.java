@@ -19,8 +19,8 @@ import constants.MySqlStatement;
 public class Node {
 	public static final int commonPort = 3001;
 
-	   public static final String IP_EUROPE_AMERICA = "192.168.171.2"; //tim
-	   public static final String IP_ASIA_AFRICA = "192.168.171.2"; //gab
+	   public static final String IP_EUROPE_AMERICA = "192.168.0.27"; //tim
+	   public static final String IP_ASIA_AFRICA = "192.168.0.28"; //gab
 	   public static final String IP_BOTH = "192.168.171.2"; //luigi
 
 	   public static final int BOTH_NODE_NUMBER = 1;
@@ -146,8 +146,7 @@ public class Node {
 	      
 	   }
 	   
-	   public ResultSet retrieveData (ArrayList <Integer> targetNodes, ArrayList <String> queries) {
-		   ResultSet rs = null;
+	   public ArrayList<String[]> retrieveData (ArrayList <Integer> targetNodes, ArrayList <String> queries) {
 		   ArrayList<String[]> out = new ArrayList<>();
 		   
 		   for (int i = 0; i < targetNodes.size(); i++) {
@@ -155,21 +154,21 @@ public class Node {
 				   PreparedStatement pst;
 					try {
 						pst = mainConn.prepareStatement(queries.get(i));
-						rs = pst.executeQuery();
+						ResultSet rs = pst.executeQuery();
 						ResultSetMetaData metadata = rs.getMetaData();
 						
 						int numberOfColumns = metadata.getColumnCount();
 						
-						/*while (rs.next()) {
+						while (rs.next()) {
 							System.out.println("Result set is not empty");
 							String[] toPlace = new String[numberOfColumns];
 							for(int j = 0; j < numberOfColumns; j++){
 								toPlace[j] = rs.getObject(j+1) + ""; 
 							}
 							out.add(toPlace);
-						}*/
+						}
 						
-						return rs;
+						return out;
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -181,17 +180,20 @@ public class Node {
 				   switch (targetNodes.get(i)) {
 				   
 				   case EUROPE_AMERICA_NODE_NUMBER:
-					   return europeAmericaClient.requestData(statement);
+					   out.addAll(europeAmericaClient.requestData(statement));
+					   break;
 				   case ASIA_AFRICA_NODE_NUMBER:
-					   return asiaAfricaClient.requestData(statement);
+					   out.addAll(asiaAfricaClient.requestData(statement));
+					   break;
 				   case BOTH_NODE_NUMBER:
-					   return allClient.requestData(statement);
+					   out.addAll(allClient.requestData(statement));
+					   break;
 					   
 				   }
 			   }
 		   }
 		   
-		   return rs;
+		   return out;
 		   
 	   }
 

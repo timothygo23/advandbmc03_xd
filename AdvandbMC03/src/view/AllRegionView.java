@@ -87,72 +87,7 @@ public class AllRegionView extends NodeView {
 	}
 	
 	public void doFuckingLocalShit(int target, String query){
-		ArrayList<Integer> nodesChecked = new ArrayList<>();
-		ArrayList<String> queries = new ArrayList<>();
-		nodesChecked.add(target);
-		queries.add(query);
 		
-		ResultSet rs = node.retrieveData(nodesChecked, queries);
-		col = new ArrayList<TableColumn>();
-		data = FXCollections.observableArrayList();
-		
-		if (!resultsTable.getTable().getColumns ().isEmpty ()){
-			for(int i = 0; i < col.size(); i++){
-				resultsTable.getTable().getColumns ().removeAll (col.get(i));
-			}
-			col.clear();
-		}
-			
-		
-		if (!resultsTable.getTable().getItems ().isEmpty ()){
-			resultsTable.getTable().getItems ().removeAll (row);
-			data.clear();
-		}
-		try {
-			for (int i = 0; i < rs.getMetaData ().getColumnCount (); i++) {
-				final int j = i;
-				TableColumn c = new TableColumn (rs.getMetaData ().getColumnName (i + 1));
-				c.setCellValueFactory (new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>> () {
-					public ObservableValue<String> call (CellDataFeatures<ObservableList, String> param) {
-							return new SimpleStringProperty (param.getValue ().get (j).toString ());
-					}
-				});
-				
-				col.add(c);
-				resultsTable.getTable().getColumns ().addAll (c);
-				//System.out.println ("Column " + i + " added");
-			}
-			
-			while (rs.next()) {
-				row = FXCollections.observableArrayList ();
-				
-				for (int i = 1; i <= rs.getMetaData ().getColumnCount (); i++) {
-					String s = "";
-					switch(rs.getMetaData().getColumnType(i)){
-						case Types.INTEGER: s = Integer.toString(rs.getInt(i));
-							break;
-						case Types.DATE: Date d = rs.getDate(i);
-							s = d.toString();
-							break;
-						case Types.VARCHAR: s = rs.getString(i);
-							break;
-						case Types.BIGINT: s = Integer.toString(rs.getInt(i));
-							break;
-						case Types.DOUBLE: s = Double.toString(rs.getDouble(i));
-							break;
-					}
-					row.add (s);
-				}
-				
-				data.add(row);
-				//System.out.println ("Row " + row + " added");
-				
-			}
-			resultsTable.getTable().setItems (data);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Override
