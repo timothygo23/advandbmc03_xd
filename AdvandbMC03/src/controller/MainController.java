@@ -2,47 +2,50 @@ package controller;
 
 import javafx.stage.Stage;
 import view.ConcreteView;
+import view.NodeChooseView;
 
 public class MainController extends Controller{
-
-	private ConcreteView cv;
+	public static final int ALL_REGION_VIEW = 1;
+	public static final int EUROPE_AMERICA_VIEW = 2;
+	public static final int ASIA_AFRICA_VIEW = 3;
+	public static final int NODES_VIEW = 4;
 	
 	public MainController(Stage stage) {
 		super(stage);
 		mainStage.setTitle("ADVANDB MCO2");
-		scene.getStylesheets ().add ("./StyleSheet.css");
+		//scene.getStylesheets ().add ("./StyleSheet.css");
+		
+		setScene(NODES_VIEW);
 	}
 
 	@Override
 	protected void initViews() {
-		cv = new ConcreteView(this);	
+		
 	}
 
 	@Override
 	protected void changeView() {
 		switch (currentView) {
-			case 0:
-				scene.setRoot (cv.getView ());
+			case NODES_VIEW:
+				NodeChooseView ncv = new NodeChooseView(this);
+				scene.setRoot(ncv);
 				break;
-				
-			default:
-				scene.setRoot (cv.getView ());
+			case ALL_REGION_VIEW:
+				//scene.setRoot (value);
+				break;
+			case EUROPE_AMERICA_VIEW:
+				//scene.setRoot(value);
+				break;
+			case ASIA_AFRICA_VIEW:
+				//scene.setRoot(value);
+				break;
 		}
 		
 	}
 
 	@Override
 	public void setScene(int n) {
-		switch (n) {
-			case 0:
-			case 1:
-				currentView = n;
-				break;
-				
-			default:
-				currentView = 0;
-		}
-		
+		currentView = n;
 		changeView ();
 	}
 	
