@@ -44,7 +44,7 @@ public class EuropeAmericaView extends NodeView{
 					case 1: changePreviewTextArea("Transaction 1: \n" + 
 							MySqlStatement.localCase2_Transaction1() + 
 							"\nTransaction 2: \n" +
-							MySqlStatement.localCase2_Transaction2("PHL"));
+							MySqlStatement.localCase2_Transaction2("ADO"));
 						break;
 					case 2: changePreviewTextArea("Transaction 1: \n" + 
 							MySqlStatement.localCase3_Transaction1("ALB") + 
@@ -80,7 +80,7 @@ public class EuropeAmericaView extends NodeView{
 				case 0:	Transaction transaction = new Transaction(this, node, node.EUROPE_AMERICA_NODE_NUMBER, MySqlStatement.localCase1_Transaction1(), MySqlStatement.localCase1_Transaction2());
 						transaction.start();
 					break;
-				case 1: Transaction transaction1 = new Transaction(this, node, node.EUROPE_AMERICA_NODE_NUMBER, MySqlStatement.localCase2_Transaction1(), MySqlStatement.localCase2_Transaction2("PHL"));
+				case 1: Transaction transaction1 = new Transaction(this, node, node.EUROPE_AMERICA_NODE_NUMBER, MySqlStatement.localCase2_Transaction1(), MySqlStatement.localCase2_Transaction2("ADO"));
 						transaction1.start();
 					break;
 				case 2: Transaction transaction2 = new Transaction(this, node, node.EUROPE_AMERICA_NODE_NUMBER, MySqlStatement.localCase3_Transaction1("ALB"), MySqlStatement.localCase3_Transaction2("ALB"));

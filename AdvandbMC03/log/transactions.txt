@@ -1,1 +1,5 @@
 **TRANSACTIONS OF NODE 2**
+<T1 UPDATE data_by_year SET Data = Data * 2 WHERE CountryCode = "ALB" && YearC = "2001 [YR2001]" && SeriesCode = "SL.UEM.TERT.MA.ZS";>
+<T1 UPDATE data_by_year SET Data = Data * 2 WHERE CountryCode = "ALB" && YearC = "2001 [YR2001]" && SeriesCode = "SL.UEM.TERT.MA.ZS";>
+<T1 UPDATE data_by_year SET Data = Data + 100 WHERE CountryCode = "ALB" && YearC = "2001 [YR2001]" && SeriesCode = "SL.UEM.TERT.MA.ZS";>
+<T1 UPDATE data_by_year SET Data = Data + 100 WHERE CountryCode = "ALB" && YearC = "2001 [YR2001]" && SeriesCode = "SL.UEM.TERT.MA.ZS";>

@@ -163,7 +163,6 @@ public class TcpListener extends Thread {
 						
 						pstmt = serversNode.getMainConnection().prepareStatement(clientSentence);
 						
-						
 						ResultSet rs = pstmt.executeQuery();
 						
 						// Write rs to server
