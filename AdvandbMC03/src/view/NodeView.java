@@ -11,6 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -50,6 +52,9 @@ public abstract class NodeView extends BorderPane implements View{
 		protected ResultsTable resultsTable;
 		
 	protected VBox rightVBox;
+		private HBox itazuraHBox;
+			private ImageView itazuraView;
+			private Image itazura;
 		protected Label logLabel;
 		protected TextArea logTextArea;
 		protected Button clearLogButton;
@@ -163,6 +168,15 @@ public abstract class NodeView extends BorderPane implements View{
 		rightVBox = new VBox (10);
 		rightVBox.setId("RightVBox");
 		rightVBox.setAlignment(Pos.CENTER);
+
+			itazuraHBox = new HBox ();
+			
+				itazura = new Image(("itazura.jpg"));
+				itazuraView = new ImageView(); 
+				itazuraView.setImage(itazura);
+				itazuraView.setPreserveRatio(true);
+
+			itazuraHBox.getChildren().addAll(itazuraView);
 		
 			logLabel = new Label ("Log");
 			logLabel.setId("DefaultLabel");
@@ -173,7 +187,7 @@ public abstract class NodeView extends BorderPane implements View{
 			clearLogButton = new Button ("Clear Log");
 			clearLogButton.getStyleClass().add("RedButton");
 		
-		rightVBox.getChildren().addAll(logLabel, logTextArea, clearLogButton);
+		rightVBox.getChildren().addAll(itazuraHBox, logLabel, logTextArea, clearLogButton);
 		
 		VBox.setVgrow(rightVBox, Priority.ALWAYS);
 	}
