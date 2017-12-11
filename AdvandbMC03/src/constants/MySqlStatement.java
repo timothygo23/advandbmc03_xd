@@ -59,7 +59,8 @@ public class MySqlStatement {
 		/*
 		 * inserts a data in the year 2001, in thi respective node
 		 */
-		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data)VALUES (\""+countryCode+"\", \"SL.UEM.TERT.MA.ZS\", \"2001 [YR2001]\", \"1234\");";
+		String sql = "INSERT INTO data_by_ye"
+				+ "ar (CountryCode, SeriesCode, YearC, Data)VALUES (\""+countryCode+"\", \"SL.UEM.TERT.MA.ZS\", \"2001 [YR2001]\", \"1234\");";
 		return sql;
 	}
 	

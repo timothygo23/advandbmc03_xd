@@ -104,7 +104,7 @@ public class AsiaAfricaView extends NodeView{
 		});
 		
 		clearLogButton.setOnAction(e -> {
-			
+			logTextArea.setText("");
 		});
 	}
 	

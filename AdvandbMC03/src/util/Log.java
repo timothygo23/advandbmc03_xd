@@ -102,8 +102,8 @@ public class Log {
 	public int writeTransaction(String statement) {
 		newTransaction(statement);
 		int transactionNumber = getLastTransactionNumber();
-		writeToLog(transactionNumber, "START");			
-		writeToLog(transactionNumber, "EXECUTE");
+		writeToLog(transactionNumber, "UNA");			
+		writeToLog(transactionNumber, "GAWA");
 		writeToLog(transactionNumber, "COMMIT");
 		
 		return transactionNumber;

@@ -123,7 +123,7 @@ public class TcpListener extends Thread {
 				   try {
 					   Log.getInstance().writeToLog(num, "MAIN READY");
 						outToClient.writeBytes(Protocols.READY + '\n');
-						System.out.println("Sent Message: " + Protocols.READY);
+						System.out.println("BINIGAY ANG MENSAHE: " + Protocols.READY);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -131,7 +131,7 @@ public class TcpListener extends Thread {
 				   
 			   } else if (clientSentence.contains(Protocols.QUERY_FOR_REPLICA)) {
 				   clientSentence = clientSentence.replaceAll(Protocols.QUERY_FOR_REPLICA, "");
-				   System.out.println("Received for Replica: " + clientSentence);
+				   System.out.println("TINANGGAP NG COPYA: " + clientSentence);
 				   
 				   PreparedStatement prepStatement = null;
 				   int num = 0;
@@ -140,23 +140,23 @@ public class TcpListener extends Thread {
 					
 					prepStatement.execute();
 					num = Log.getInstance().newTransaction(clientSentence);
-					Log.getInstance().writeToLog(num, "REPLICA START");
-					Log.getInstance().writeToLog(num, "REPLICA EXECUTE");
+					Log.getInstance().writeToLog(num, "REPLICA UNA");
+					Log.getInstance().writeToLog(num, "REPLICA GAWA");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				   try {
-					Log.getInstance().writeToLog(num, "REPLICA READY");
+					Log.getInstance().writeToLog(num, "REPLICA STAGED");
 					outToClient.writeBytes(Protocols.READY + '\n');
-					System.out.println("Sent Message: " + Protocols.READY);
+					System.out.println("BINIGAY ANG MENSAHE: " + Protocols.READY);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			   } else if (clientSentence.contains(Protocols.QUERY_FOR_SELECT) || clientSentence.contains(Protocols.QUERY_FOR_REPLICA)) {
 				   clientSentence = clientSentence.replaceAll(Protocols.QUERY_FOR_SELECT, "");
-				   System.out.println("Received for Select: " + clientSentence);
+				   System.out.println("KINUHA ANG CLIENTE: " + clientSentence);
 				   
 				   try {
 						PreparedStatement pstmt = null;

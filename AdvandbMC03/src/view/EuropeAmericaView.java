@@ -102,7 +102,7 @@ public class EuropeAmericaView extends NodeView{
 		});
 		
 		clearLogButton.setOnAction(e -> {
-			
+			logTextArea.setText("");
 		});
 	}
 	
