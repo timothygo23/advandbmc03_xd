@@ -55,12 +55,21 @@ public class EuropeAmericaView extends NodeView{
 			}else{
 				//global queries
 				switch(statementComboBox.getSelectionModel().getSelectedIndex()){
-					case 0:	System.out.println("1");
+					case 0:	changePreviewTextArea("Transaction 1: \n" + 
+							MySqlStatement.globalCase1_Transaction1() + 
+							"\nTransaction 2: \n" +
+							MySqlStatement.globalCase1_Transaction2());
 						break;
-					case 1: System.out.println("2");
+					case 1: changePreviewTextArea("Transaction 1: \n" + 
+							MySqlStatement.globalCase2_Transaction1() + 
+							"\nTransaction 2: \n" +
+							MySqlStatement.globalCase2_Transaction2());
 						break;
-					case 2: System.out.println("3");
-						break;
+					case 2: changePreviewTextArea("Transaction 1: \n" + 
+							MySqlStatement.globalCase3_Transaction1() + 
+							"\nTransaction 2: \n" +
+							MySqlStatement.globalCase3_Transaction2());
+					break;
 				}
 			}
 		});
@@ -90,11 +99,14 @@ public class EuropeAmericaView extends NodeView{
 			}else{
 				//global queries
 				switch(statementComboBox.getSelectionModel().getSelectedIndex()){
-					case 0:	System.out.println("1");
+					case 0:	Transaction transaction = new Transaction(this, node, node.BOTH_NODE_NUMBER, MySqlStatement.globalCase1_Transaction1(), MySqlStatement.globalCase1_Transaction2());
+							transaction.start();
 						break;
-					case 1: System.out.println("2");
+					case 1: Transaction transaction1 = new Transaction(this, node, node.BOTH_NODE_NUMBER, MySqlStatement.globalCase2_Transaction1(), MySqlStatement.globalCase2_Transaction2());
+							transaction1.start();
 						break;
-					case 2: System.out.println("3");
+					case 2: Transaction transaction2 = new Transaction(this, node, node.BOTH_NODE_NUMBER, MySqlStatement.globalCase3_Transaction1(), MySqlStatement.globalCase3_Transaction2());
+							transaction2.start();
 						break;
 				}
 			}

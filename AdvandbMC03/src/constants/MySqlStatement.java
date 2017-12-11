@@ -76,12 +76,16 @@ public class MySqlStatement {
 	
 	//global queries
 	public static String globalCase1_Transaction1(){
-		String sql = "";
+		String sql = "SELECT AVG(Data)"
+				+ " FROM data_by_year"
+				+ " WHERE YearC = '2004 [YR2004]' and SeriesCode = 'SL.UEM.TERT.FE.ZS';";
 		return sql;
 	}
 	
 	public static String globalCase1_Transaction2(){
-		String sql = "";
+		String sql = "SELECT SUM(Data)"
+				+ " FROM data_by_year"
+				+ " WHERE YearC = '2004 [YR2004]' and SeriesCode = 'SL.UEM.TERT.FE.ZS';";
 		return sql;
 	}
 	
