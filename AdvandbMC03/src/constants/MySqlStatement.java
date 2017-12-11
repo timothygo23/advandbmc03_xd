@@ -90,22 +90,22 @@ public class MySqlStatement {
 	}
 	
 	public static String globalCase2_Transaction1(){
-		String sql = "UPDATE data_by_year SET Data = 12345 WHERE CountryCode = \"PHL\" AND YearC = \"2012\" AND SeriesCode = \"SL.UEM.TERT.MA.ZS\"";
+		String sql = "UPDATE data_by_year SET Data = 12345 WHERE CountryCode = \"PHL\" AND YearC = \"2012 [YR2012]\" AND SeriesCode = \"SL.UEM.TERT.MA.ZS\"";
 		return sql;
 	}
 	
 	public static String globalCase2_Transaction2(){
-		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data)VALUES (\"ZWE\", \"SL.UEM.TERT.FE.ZS\", \"2012\", \"12345\");";
+		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data)VALUES (\"ZWE\", \"SL.UEM.TERT.FE.ZS\", \"2012 [YR2012]\", \"12345\");";
 		return sql;
 	}
 	
 	public static String globalCase3_Transaction1(){
-		String sql = "DELETE FROM data_by_year WHERE CountryCode = \"SGP\" AND TimeCode = \"2012\" AND SeriesCode = \"SL.UEM.TERT.MA.ZS\"";
+		String sql = "DELETE FROM data_by_year WHERE CountryCode = \"SGP\" AND TimeCode = \"2012 [YR2012]\" AND SeriesCode = \"SL.UEM.TERT.MA.ZS\"";
 		return sql;
 	}
 	
 	public static String globalCase3_Transaction2(){
-		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data) VALUES (\"ZWE\", \"SL.UEM.TERT.MA.ZS\", \"2012\", \"12345\");";
+		String sql = "INSERT INTO data_by_year (CountryCode, SeriesCode, YearC, Data) VALUES (\"ZWE\", \"SL.UEM.TERT.MA.ZS\", \"2012 [YR2012]\", \"12345\");";
 		return sql;
 	}
 	

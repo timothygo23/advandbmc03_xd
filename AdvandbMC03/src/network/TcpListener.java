@@ -137,7 +137,6 @@ public class TcpListener extends Thread {
 				   int num = 0;
 				   try {
 					prepStatement = serversNode.getReplicaConnection().prepareStatement(clientSentence);
-					
 					prepStatement.execute();
 					num = Log.getInstance().newTransaction(clientSentence);
 					Log.getInstance().writeToLog(num, "REPLICA UNA");
