@@ -19,9 +19,9 @@ import constants.MySqlStatement;
 public class Node {
 	public static final int commonPort = 3001;
 
-	   public static final String IP_EUROPE_AMERICA = "192.168.0.29"; //tim
+	   public static final String IP_EUROPE_AMERICA = "192.168.0.27"; //tim
 	   public static final String IP_ASIA_AFRICA = "192.168.0.28"; //gab
-	   public static final String IP_BOTH = "192.168.171.2"; //luigi
+	   public static final String IP_BOTH = "192.168.0.29"; //luigi
 
 	   public static final int BOTH_NODE_NUMBER = 1;
 	   public static final int EUROPE_AMERICA_NODE_NUMBER = 2;

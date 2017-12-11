@@ -161,10 +161,8 @@ public class TcpListener extends Thread {
 				   try {
 						PreparedStatement pstmt = null;
 						
-						if (clientSentence.contains(Protocols.QUERY_FOR_SELECT))
-							pstmt = serversNode.getMainConnection().prepareStatement(clientSentence);
-						else
-							pstmt = serversNode.getReplicaConnection().prepareStatement(clientSentence);
+						pstmt = serversNode.getMainConnection().prepareStatement(clientSentence);
+						
 						
 						ResultSet rs = pstmt.executeQuery();
 						
